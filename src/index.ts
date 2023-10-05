@@ -4,6 +4,9 @@ import { Util } from './Util'
 import papa from 'papaparse'
 import fs from 'fs'
 
+const TargetPID = 'EA60'
+const TargetVID = '10C4'
+
 
 process.removeAllListeners('warning')
 
