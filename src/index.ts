@@ -3,6 +3,7 @@ import _SerialPort, { PortInfo } from './SerialPort'
 import { Util } from './Util'
 import papa from 'papaparse'
 import fs from 'fs'
+import os from 'os'
 
 const TargetPID = 'EA60'
 const TargetVID = '10C4'
@@ -15,8 +16,8 @@ async function main() {
   const deviceName = await Util.askForUserInput("Type the name of the devices being connected.\n\tspectro-one\n\tspectro-one-pro")
   const metric = await Util.askForUserInput("Are these fails or passes?")
   const filenames = {
-    bp: `${deviceName}.${metric}.blackpoint.${new Date().getTime()}.csv`,
-    wp: `${deviceName}.${metric}.whitepoint.${new Date().getTime()}.csv`
+    bp: `${os.homedir()}/Documents/${deviceName}.${metric}.blackpoint.${new Date().getTime()}.csv`,
+    wp: `${os.homedir()}/Documents/${deviceName}.${metric}.whitepoint.${new Date().getTime()}.csv`
   }
 
 
