@@ -4,9 +4,6 @@ import { Util } from './Util'
 import papa from 'papaparse'
 import fs from 'fs'
 
-const TargetPID = 'EA60'
-const TargetVID = '10C4'
-
 
 process.removeAllListeners('warning')
 
@@ -29,7 +26,7 @@ async function main() {
       }
 
 
-      const deviceInfo = await ensureInstrumentConnected();
+      const deviceInfo = await collectManufacturerScans();
 
 
       (deviceInfo.bp as any).serial = deviceInfo.serial;
@@ -49,7 +46,7 @@ async function main() {
 
 
 
-async function ensureInstrumentConnected() {
+async function collectManufacturerScans() {
   let info: PortInfo | undefined = undefined;
 
   do {
