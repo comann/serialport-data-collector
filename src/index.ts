@@ -39,6 +39,7 @@ async function main() {
 
       fs.appendFileSync(filenames.wp, papa.unparse([deviceInfo.wp]))
       fs.appendFileSync(filenames.bp, papa.unparse([deviceInfo.bp]))
+      console.log('> Appended Results to File')
 
     } catch (err) {
       console.log(err);
